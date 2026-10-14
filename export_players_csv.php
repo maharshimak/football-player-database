@@ -1,0 +1,2 @@
+<?php
+require __DIR__ . '/bootstrap.php'; require_auth(); $db = connection(); $result = $db->query('SELECT id,name,email,team FROM players ORDER BY id'); header('Content-Type: text/csv; charset=UTF-8'); header('Content-Disposition: attachment; filename="players.csv"'); $out = fopen('php://output', 'w'); fputcsv($out, ['ID','Name','Email','Team'], ',', '"', ''); while ($row = $result->fetch_assoc()) fputcsv($out, array_map('csv_safe', [$row['id'],$row['name'],$row['email'],$row['team']]), ',', '"', ''); fclose($out);

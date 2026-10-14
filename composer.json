@@ -1,0 +1,1 @@
+{"name":"makma/football-player-database","description":"Local authenticated football-player CRUD teaching application","require":{"php":">=8.3","ext-mysqli":"*"}}
